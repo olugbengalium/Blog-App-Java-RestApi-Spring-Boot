@@ -3,8 +3,6 @@ package com.webbers.blogjavarestapi.service;
 import com.webbers.blogjavarestapi.payload.PostDto;
 import com.webbers.blogjavarestapi.payload.PostResponse;
 
-import java.util.List;
-
 public interface PostService {
     PostDto createPost(PostDto postDto);
     PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir);
@@ -13,4 +11,5 @@ public interface PostService {
     void deletePost(long id);
 
 //    List<PostDto> getAllPost();
+
 }
