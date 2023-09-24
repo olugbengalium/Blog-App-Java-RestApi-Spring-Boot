@@ -1,9 +1,13 @@
 package com.webbers.blogjavarestapi.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Comment {
 
@@ -24,4 +28,3 @@ public class Comment {
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 }
-
