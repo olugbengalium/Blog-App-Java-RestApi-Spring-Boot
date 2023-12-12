@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @ResponseStatus(HttpStatus.OK)
-@RequestMapping("/api/posts")
+@RequestMapping("/api/v1/posts")
 public class PostController {
     private PostService postService;
     public PostController(PostService postService) {

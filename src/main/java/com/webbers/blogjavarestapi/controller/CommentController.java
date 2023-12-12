@@ -53,6 +53,4 @@ public class CommentController {
         commentService.deleteComment(postid, commentid);
         return new ResponseEntity<>("Comment Deleted",HttpStatus.OK);
     }
-
-
 }

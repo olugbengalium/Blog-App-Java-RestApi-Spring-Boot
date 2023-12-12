@@ -36,32 +36,23 @@ public class AuthServiceImpl implements AuthService {
         this.passwordEncoder = passwordEncoder;
         this.jwtTokenProvider = jwtTokenProvider;
     }
-
 //    @Override
 //    public String login(LoginDto loginDto) {
 //        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 //                loginDto.getUsernameOrEmail(),loginDto.getPassword()
 //        ));
 //        SecurityContextHolder.getContext().setAuthentication(authentication);
-//
 //        String token = jwtTokenProvider.generateToken(authentication);
 //        return token;
 //    }
-
     @Override
     public String login(LoginDto loginDto) {
-
-
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginDto.getUsernameOrEmail(), loginDto.getPassword()));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtTokenProvider.generateToken(authentication);
-
         return token;
     }
-
-
 
     @Override
     public String register(RegistrationDto registrationDto) {
@@ -69,22 +60,15 @@ public class AuthServiceImpl implements AuthService {
         if(userRepository.existsByUsername(registrationDto.getUsername()) || userRepository.existsByEmail(registrationDto.getEmail())){
             throw new BlogAPIException(HttpStatus.BAD_REQUEST,"Username/Email already exists");
         }
-
         User user = new User();
         user.setName(registrationDto.getName());
         user.setEmail(registrationDto.getEmail());
         user.setUsername(registrationDto.getUsername());
         user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
-
         Set<Role> roles = new HashSet<>();
         Role userRole = roleRepository.findByName("ROLE_USER").get();
         roles.add(userRole);
-
         userRepository.save(user);
-
         return "new user registered successfully!!!";
-
-
-
     }
 }

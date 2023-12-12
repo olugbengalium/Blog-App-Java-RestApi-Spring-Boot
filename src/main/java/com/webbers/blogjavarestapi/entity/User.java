@@ -2,6 +2,7 @@ package com.webbers.blogjavarestapi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.redis.core.RedisHash;
 
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
+@RedisHash("AntiHerod")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
