@@ -13,7 +13,7 @@ import org.springframework.data.redis.core.RedisHash;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@RedisHash("AntiHeroine")
+//@RedisHash("AntiHeroine")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

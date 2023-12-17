@@ -12,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-@RedisHash("AntiHerod")
+//@RedisHash("AntiHerod")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

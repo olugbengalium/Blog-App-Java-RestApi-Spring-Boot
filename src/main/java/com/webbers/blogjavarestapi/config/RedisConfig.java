@@ -10,7 +10,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.util.UUID;
 
-@Configuration
+//@Configuration
 public class RedisConfig {
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
@@ -38,5 +38,4 @@ public class RedisConfig {
         template.afterPropertiesSet();
         return template;
     }
-
 }
